@@ -3,9 +3,8 @@ import toast from "react-hot-toast";
 import { SpaceCanvas, MatrixRain } from "./AdminEffects";
 
 const ADMINS = [
-  { username: "aarav12ee", password: "waterbottle" },
-  { username: "kajal", password: "kajal12kajal" },
-  {username: "anupam", password: "anupam123"},
+  { username: "nikhil", password: "nikhil123" },
+  { username: "anupam", password: "anupam123" },
 ];
 
 export default function AdminLogin({ onLogin }) {
