@@ -27,7 +27,9 @@ export default function AdminLogin({ onLogin }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (ADMINS.some(a => a.username === username && a.password === password)) {
+    const cleanUsername = username.trim().toLowerCase();
+    const cleanPassword = password.trim();
+    if (ADMINS.some(a => a.username.toLowerCase() === cleanUsername && a.password === cleanPassword)) {
       sessionStorage.setItem("adminAuth", "true");
       onLogin();
       return;
