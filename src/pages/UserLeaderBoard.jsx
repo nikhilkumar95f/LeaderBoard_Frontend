@@ -9,6 +9,20 @@ import { SpaceCanvas, MatrixRain } from "../components/LeaderboardEffects";
 import { useScrollReveal, computeGameData } from "../components/LeaderboardHelpers";
 import LeaderboardNav from "../components/LeaderboardNav";
 
+function LeaderboardSkeleton() {
+  return (
+    <div className="leaderboard-skeleton" aria-label="Loading leaderboard" role="status">
+      {Array.from({ length: 5 }, (_, index) => (
+        <div className="skeleton-row" key={index}>
+          <span className="skeleton-block skeleton-rank" />
+          <span className="skeleton-block skeleton-name" />
+          <span className="skeleton-block skeleton-score" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function UserLeaderboard() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
@@ -32,7 +46,7 @@ export default function UserLeaderboard() {
   const [statsRef, statsVisible] = useScrollReveal(0.1);
   const fullText = "> ACCESSING IGNITE_CLUB.DB... [OK]\n> DECRYPTING BUGBYTE RANKINGS... [OK]\n> NEURAL LINK ESTABLISHED......... [GO]";
 
-  useEffect(() => {
+  const fetchStudents = () => {
     setIsLoading(true);
     setLoadError(false);
     api.get("/students")
@@ -42,6 +56,10 @@ export default function UserLeaderboard() {
       })))
       .catch(() => setLoadError(true))
       .finally(() => setIsLoading(false));
+  };
+
+  useEffect(() => {
+    fetchStudents();
   }, []);
 
   useEffect(() => {
@@ -177,6 +195,14 @@ export default function UserLeaderboard() {
         .status-panel{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:520px;margin:36px auto 80px;padding:32px 24px;text-align:center;background:rgba(255,90,90,0.04);border:1px solid rgba(255,110,110,0.2);color:rgba(255,210,210,0.66);line-height:1.6}
         .status-panel strong{font-family:'Orbitron',monospace;font-size:clamp(13px,2vw,17px);font-weight:700;color:#ffd8d8;letter-spacing:0.04em}
         .status-panel-code{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:#ff8d8d}
+        .status-retry{margin-top:8px;padding:10px 16px;border:1px solid rgba(255,160,160,0.45);background:rgba(255,100,110,0.12);color:#ffd8d8;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s}
+        .status-retry:hover{background:rgba(255,100,110,0.24);border-color:#ff9b9b;box-shadow:0 0 18px rgba(255,100,110,0.18)}
+        .leaderboard-skeleton{display:flex;flex-direction:column;gap:8px;padding:16px 14px;background:rgba(0,4,14,0.72);border:1px solid rgba(0,255,160,0.1);border-radius:3px}
+        .skeleton-row{display:grid;grid-template-columns:72px 1fr 100px;align-items:center;gap:18px;min-height:64px;padding:12px 16px;border-bottom:1px solid rgba(0,255,160,0.06)}
+        .skeleton-row:last-child{border-bottom:0}
+        .skeleton-block{display:block;height:12px;background:linear-gradient(90deg,rgba(0,255,160,0.06),rgba(0,255,200,0.18),rgba(0,255,160,0.06));background-size:220% 100%;animation:skeletonPulse 1.4s ease-in-out infinite;border-radius:2px}
+        .skeleton-rank{width:30px;justify-self:center}.skeleton-name{max-width:250px}.skeleton-score{width:70px;justify-self:end}
+        @keyframes skeletonPulse{0%{background-position:200% 0}100%{background-position:-20% 0}}
 
         @keyframes g1{0%,90%,100%{opacity:0;transform:translateX(0)}91%{opacity:0.85;transform:translateX(-4px)}95%{opacity:0.5;transform:translateX(2px)}}
         @keyframes g2{0%,86%,100%{opacity:0;transform:translateX(0)}87%{opacity:0.75;transform:translateX(4px)}92%{opacity:0.4;transform:translateX(-2px)}}
@@ -351,14 +377,13 @@ export default function UserLeaderboard() {
 
         <div id="leaderboard" className="lb-inner">
           {isLoading ? (
-            <div style={{ textAlign: "center", padding: "84px 0", color: "rgba(0,255,160,0.32)", fontFamily: "'Share Tech Mono',monospace", letterSpacing: "0.18em" }}>
-              ◈ UPDATING LIVE RANKS... HOLD STEADY ◈
-            </div>
+            <LeaderboardSkeleton />
           ) : loadError ? (
             <div className="status-panel">
               <span className="status-panel-code">CONNECTION LOST</span>
               <strong>Leaderboard data is temporarily unavailable.</strong>
-              <span>Check the API service and refresh this page.</span>
+              <span>Check the API service, then try again.</span>
+              <button type="button" className="status-retry" onClick={fetchStudents}>Retry connection</button>
             </div>
           ) : (
             <>
@@ -407,7 +432,7 @@ export default function UserLeaderboard() {
                   {filtered.length === 0 && (
                     <tr>
                       <td colSpan={5} style={{ textAlign: "center", padding: "52px 0", color: "rgba(0,255,160,0.18)", fontFamily: "'Share Tech Mono',monospace", fontSize: 12, letterSpacing: "0.18em" }}>
-                        ◈ NO SIGNAL DETECTED ◈
+                        {data.length === 0 ? "◈ NO OPERATIVES REGISTERED ◈" : "◈ NO MATCHES FOUND ◈"}
                       </td>
                     </tr>
                   )}
@@ -434,7 +459,7 @@ export default function UserLeaderboard() {
             ))}
             {filtered.length === 0 && (
               <p style={{ textAlign: "center", color: "rgba(0,255,160,0.18)", marginTop: 52, letterSpacing: "0.18em", fontFamily: "'Share Tech Mono',monospace", fontSize: 12 }}>
-                ◈ NO SIGNAL DETECTED ◈
+                {data.length === 0 ? "◈ NO OPERATIVES REGISTERED ◈" : "◈ NO MATCHES FOUND ◈"}
               </p>
             )}
           </div>
