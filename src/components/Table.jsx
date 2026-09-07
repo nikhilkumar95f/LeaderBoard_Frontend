@@ -5,7 +5,7 @@ export function TerminalRow({ item, index, medal, topScore, badges, rankDeltas, 
   const [ref, visible] = useScrollReveal(0.04);
   const [hov, setHov] = useState(false);
   const rg = rankGlow(item.rank);
-  const xpPct = topScore > 0 ? Math.round((item.points / topScore) * 100) : 0;
+  const xpPct = topScore > 0 ? Math.max(0, Math.min(100, Math.round((item.points / topScore) * 100))) : 0;
   const delta = rankDeltas[item.roll];
   const hasDelta = delta?.hadPrev && delta.delta !== 0;
 
@@ -46,7 +46,7 @@ export function TerminalRow({ item, index, medal, topScore, badges, rankDeltas, 
         </div>
       </td>
       <td style={{ padding: "14px 16px", textAlign: "center" }}>
-        <span style={{ display: "inline-block", padding: "3px 14px", borderRadius: 2, background: hov ? "rgba(0,255,160,0.14)" : "rgba(0,255,160,0.06)", border: `1px solid ${hov ? "rgba(0,255,160,0.5)" : "rgba(0,255,160,0.2)"}`, color: "#00ffa0", fontWeight: 700, fontSize: 13, fontFamily: "'Share Tech Mono',monospace", letterSpacing: "0.05em", transition: "all 0.3s", boxShadow: hov ? "0 0 18px rgba(0,255,160,0.3)" : "none" }}>{item.points}</span>
+        <span className={item.points < 0 ? "score-chip score-chip-negative" : "score-chip"}>{item.points}</span>
       </td>
       <td style={{ padding: "14px 16px", textAlign: "center" }}>
         <div style={{ display: "flex", gap: 6, justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
@@ -63,7 +63,7 @@ export function MobileCard({ item, index, medal, topScore, badges, rankDeltas, r
   const [ref, visible] = useScrollReveal(0.04);
   const [hov, setHov] = useState(false);
   const rg = rankGlow(item.rank);
-  const xpPct = topScore > 0 ? Math.round((item.points / topScore) * 100) : 0;
+  const xpPct = topScore > 0 ? Math.max(0, Math.min(100, Math.round((item.points / topScore) * 100))) : 0;
   const delta = rankDeltas[item.roll];
   const hasDelta = delta?.hadPrev && delta.delta !== 0;
 
@@ -97,7 +97,7 @@ export function MobileCard({ item, index, medal, topScore, badges, rankDeltas, r
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>
-          <span style={{ padding: "4px 14px", background: "rgba(0,255,160,0.08)", border: "1px solid rgba(0,255,160,0.25)", color: "#00ffa0", fontWeight: 700, fontSize: 13, fontFamily: "'Share Tech Mono',monospace" }}>{item.points}</span>
+          <span className={item.points < 0 ? "score-chip score-chip-negative" : "score-chip"}>{item.points}</span>
           <button onClick={() => onShare(item)} className={`lb-share-btn${copied === item.roll ? " lb-share-btn--ok" : ""}`} style={{ fontSize: 11 }}>{copied === item.roll ? "✓ Copied" : "⎘ Share"}</button>
         </div>
       </div>

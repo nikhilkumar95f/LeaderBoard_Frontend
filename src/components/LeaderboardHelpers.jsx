@@ -21,19 +21,27 @@ export function useScrollReveal(threshold = 0.1) {
 }
 
 export function Counter({ value, visible, duration = 1400 }) {
-  const [n, setN] = useState(0);
+  const numericValue = Number(value) || 0;
+  const [n, setN] = useState(numericValue);
 
   useEffect(() => {
-    if (!visible) return;
+    if (numericValue < 0) {
+      setN(numericValue);
+      return;
+    }
+    if (!visible) {
+      setN(numericValue);
+      return;
+    }
     let start = null;
     const step = ts => {
       if (!start) start = ts;
       const p = Math.min((ts - start) / duration, 1);
-      setN(Math.round((1 - Math.pow(1 - p, 4)) * value));
+      setN(Math.round((1 - Math.pow(1 - p, 4)) * numericValue));
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-  }, [value, visible, duration]);
+  }, [numericValue, visible, duration]);
 
   return <>{n}</>;
 }
