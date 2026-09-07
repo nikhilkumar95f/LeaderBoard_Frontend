@@ -38,7 +38,6 @@ export default function UserLeaderboard() {
   const [sortBy, setSortBy] = useState("rank");
   const [showTopOnly, setShowTopOnly] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadError, setLoadError] = useState(false);
   const podiumRef = useRef(null);
 
   const handleProfileClose = () => setProfileTarget(null);
@@ -48,13 +47,12 @@ export default function UserLeaderboard() {
 
   const fetchStudents = () => {
     setIsLoading(true);
-    setLoadError(false);
     api.get("/students")
       .then(res => setData(res.data.map(student => {
         const points = Number(student.points);
         return { ...student, points: Number.isFinite(points) ? points : 0 };
       })))
-      .catch(() => setLoadError(true))
+      .catch(() => setData([]))
       .finally(() => setIsLoading(false));
   };
 
@@ -92,17 +90,20 @@ export default function UserLeaderboard() {
   }, [data]);
 
   const handleEnter = () => {
-    try { window.speechSynthesis.speak(new SpeechSynthesisUtterance("Welcome to Ignite Club BugByte")); } catch (_) {}
     setExiting(true);
     setTimeout(() => setShowWelcome(false), 720);
   };
 
-  const shareRank = item => {
+  const shareRank = async item => {
     const text = `I'm #${item.rank} on BugByte 2026 Leaderboard with ${item.points} XP! 🔥 ${window.location.href}`;
-    navigator.clipboard.writeText(text).then(() => {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(text);
       setCopied(item.roll);
       setTimeout(() => setCopied(""), 1800);
-    });
+    } catch {
+      window.prompt("Copy your leaderboard result:", text);
+    }
   };
 
   const sorted = [...data].sort((a, b) => a.rank - b.rank);
@@ -192,11 +193,6 @@ export default function UserLeaderboard() {
         .rankings-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:0 0 22px;padding:0 2px}
         .rankings-heading h2{font-family:'Orbitron',monospace;font-size:clamp(15px,2vw,21px);letter-spacing:0.1em;color:#e8fff4}
         .rankings-heading p{color:rgba(0,255,160,0.38);font-size:10px;letter-spacing:0.1em;text-align:right}
-        .status-panel{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:520px;margin:36px auto 80px;padding:32px 24px;text-align:center;background:rgba(255,90,90,0.04);border:1px solid rgba(255,110,110,0.2);color:rgba(255,210,210,0.66);line-height:1.6}
-        .status-panel strong{font-family:'Orbitron',monospace;font-size:clamp(13px,2vw,17px);font-weight:700;color:#ffd8d8;letter-spacing:0.04em}
-        .status-panel-code{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:#ff8d8d}
-        .status-retry{margin-top:8px;padding:10px 16px;border:1px solid rgba(255,160,160,0.45);background:rgba(255,100,110,0.12);color:#ffd8d8;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s}
-        .status-retry:hover{background:rgba(255,100,110,0.24);border-color:#ff9b9b;box-shadow:0 0 18px rgba(255,100,110,0.18)}
         .leaderboard-skeleton{display:flex;flex-direction:column;gap:8px;padding:16px 14px;background:rgba(0,4,14,0.72);border:1px solid rgba(0,255,160,0.1);border-radius:3px}
         .skeleton-row{display:grid;grid-template-columns:72px 1fr 100px;align-items:center;gap:18px;min-height:64px;padding:12px 16px;border-bottom:1px solid rgba(0,255,160,0.06)}
         .skeleton-row:last-child{border-bottom:0}
@@ -378,13 +374,6 @@ export default function UserLeaderboard() {
         <div id="leaderboard" className="lb-inner">
           {isLoading ? (
             <LeaderboardSkeleton />
-          ) : loadError ? (
-            <div className="status-panel">
-              <span className="status-panel-code">CONNECTION LOST</span>
-              <strong>Leaderboard data is temporarily unavailable.</strong>
-              <span>Check the API service, then try again.</span>
-              <button type="button" className="status-retry" onClick={fetchStudents}>Retry connection</button>
-            </div>
           ) : (
             <>
               <div className="rankings-heading">
