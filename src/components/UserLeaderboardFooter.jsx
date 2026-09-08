@@ -1,15 +1,18 @@
 import { useState } from "react";
 
 const foundingMembers = [
-  { name: "Aarav", role: "President", image: "/members/aarav.jpeg", link: "https://www.linkedin.com/in/aarav12e/" },
-  { name: "Aakash", role: "Vice President", image: "/members/aakash.jpeg", link: "https://www.linkedin.com/in/aakash-mandal-012444372/" },
-  { name: "Archana", role: "Secretary", image: "/members/archana.jpeg", link: "https://www.linkedin.com/in/archana-kumari-601306328/" },
+  { name: "Aarav Kumar", role: "President", image: "/members/aarav.jpeg", link: "https://www.linkedin.com/in/aarav12e/" },
+  { name: "Aakash Mandal", role: "Vice President", image: "/members/aakash.jpeg", link: "https://www.linkedin.com/in/aakash-mandal-012444372/" },
+  { name: "Archana Kumari", role: "Secretary", image: "/members/archana.jpeg", link: "https://www.linkedin.com/in/archana-kumari-601306328/" },
   { name: "Kajal", role: "Media Head", image: "/members/kajal.jpeg", link: "https://www.linkedin.com/in/kajal-singh-59a20b362/" },
-  { name: "Ishant", role: "Technical Head", image: "/members/ishant.jpeg", link: "https://www.linkedin.com/in/ishant-raj-b82901219/" },
-  { name: "Sudanshu", role: "Cybersecurity Lead", image: "/members/sudhanshu.jpeg", link: "https://www.linkedin.com/in/sudhanshu015/" },
-  { name: "Tanya", role: "Event Coordinator", image: "/members/tanya.jpeg", link: "https://www.linkedin.com/in/tanya-kumari-067362367/" },
-  { name: "Ekta", role: "Manager", image: "/members/ekta.jpeg", link: "https://www.linkedin.com/in/ekta-sharma-171381382/" },
+  { name: "Ishant Raj", role: "Technical Head", image: "/members/ishant.jpeg", link: "https://www.linkedin.com/in/ishant-raj-b82901219/" },
+  { name: "Sudanshu Kumar ", role: "Cybersecurity Lead", image: "/members/sudhanshu.jpeg", link: "https://www.linkedin.com/in/sudhanshu015/" },
+  { name: "Tanya Kumari", role: "Frontend wizard", image: "/members/tanya.jpeg", link: "https://www.linkedin.com/in/tanya-kumari-067362367/" },
+  { name: "Ekta Sharma", role: "Event coordinator", image: "/members/ekta.jpeg", link: "https://www.linkedin.com/in/ekta-sharma-171381382/" },
+   { name: "Priyanshu Priyesh", role: "Manager", image: "/members/priyanshu.jpeg", link: "https://www.linkedin.com/in/priyanshu-priyesh-82038a328?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
 ];
+
+
 
 const batchMembers = [
   { name: "Anupam", role: "President", image: "/Batch25-29/anupam.jpeg", github: "https://github.com/anupamguptaji123-droid", link: "https://www.linkedin.com/in/anupam-kumari-8167aa3a8" },
