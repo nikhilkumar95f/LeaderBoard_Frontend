@@ -15,9 +15,9 @@ const batchMembers = [
   { name: "Anupam", role: "President", image: "/Batch25-29/anupam.jpeg", github: "https://github.com/anupamguptaji123-droid", link: "https://www.linkedin.com/in/anupam-kumari-8167aa3a8" },
   { name: "Muskan", role: "Vice President", image: "/Batch25-29/muskan.jpeg", github: "https://github.com/muskan-0228", link: "https://www.linkedin.com/in/muskan-bharti-a17767383" },
   { name: "Nikhil", role: "Technical Head", image: "/Batch25-29/nikhil.jpeg", github: "https://github.com/nikhilkumar95f", link: "https://www.linkedin.com/in/nikhil-kumar-0n7" },
-  { name: "Kavyansh", role: "Technical Head", image: "/Batch25-29/kavyansh.jpeg", github: "https://github.com/kavyanshsharma423-beep", link: "https://www.linkedin.com/in/kavyansh-sharma-6a6bb9381/" },
+  { name: "Kavyansh", role: "Lead Organizer", image: "/Batch25-29/kavyansh.jpeg", github: "https://github.com/kavyanshsharma423-beep", link: "https://www.linkedin.com/in/kavyansh-sharma-6a6bb9381/" },
   { name: "Nisha", role: "Media Head", image: "/Batch25-29/nisha.jpeg", github: "https://github.com/Nisha77-git", link: "https://www.linkedin.com/in/nisha-bharti-278233389" },
-  { name: "Mungesh", role: "Batch 25-29 Member", image: "/Batch25-29/mungesh.jpeg", github: "https://github.com/mungesh2006", link: "https://www.linkedin.com/in/mungesh-jaiswal-54a7b2381" },
+  { name: "Mungesh", role: "Operations & Execution Lead", image: "/Batch25-29/mungesh.jpeg", github: "https://github.com/mungesh2006", link: "https://www.linkedin.com/in/mungesh-jaiswal-54a7b2381" },
 ];
 
 function MemberPortrait({ member }) {
