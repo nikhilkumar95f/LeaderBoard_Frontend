@@ -6,7 +6,7 @@ const foundingMembers = [
   { name: "Archana Kumari", role: "Secretary", image: "/members/archana.jpeg", link: "https://www.linkedin.com/in/archana-kumari-601306328/" },
   { name: "Kajal", role: "Media Head", image: "/members/kajal.jpeg", link: "https://www.linkedin.com/in/kajal-singh-59a20b362/" },
   { name: "Ishant Raj", role: "Technical Head", image: "/members/ishant.jpeg", link: "https://www.linkedin.com/in/ishant-raj-b82901219/" },
-  { name: "Sudanshu Kumar ", role: "Cybersecurity Lead", image: "/members/sudhanshu.jpeg", link: "https://www.linkedin.com/in/sudhanshu015/" },
+  { name: "Sudhanshu Kumar ", role: "Data Scientist", image: "/members/sudhanshu.jpeg", link: "https://www.linkedin.com/in/sudhanshu015/" },
   { name: "Tanya Kumari", role: "Frontend wizard", image: "/members/tanya.jpeg", link: "https://www.linkedin.com/in/tanya-kumari-067362367/" },
   { name: "Ekta Sharma", role: "Event coordinator", image: "/members/ekta.jpeg", link: "https://www.linkedin.com/in/ekta-sharma-171381382/" },
    { name: "Priyanshu Priyesh", role: "Manager", image: "/members/priyanshu.jpeg", link: "https://www.linkedin.com/in/priyanshu-priyesh-82038a328?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
