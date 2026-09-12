@@ -1,4 +1,5 @@
 ﻿import { Glitch, Counter } from "./LeaderboardHelpers";
+import UserLeaderboardPodium from "./UserLeaderboardPodium";
 
 export default function UserLeaderboardHero({
   showWelcome,
@@ -17,6 +18,8 @@ export default function UserLeaderboardHero({
   setShowTopOnly,
   statsRef,
   statsVisible,
+  podiumVisible,
+  podiumRef,
 }) {
   return (
     <>
@@ -68,29 +71,30 @@ export default function UserLeaderboardHero({
         <h2 className="hero-subtitle">
           ▸ BUGBYTE — NEURAL LEADERBOARD
         </h2>
-        <p className="hero-description">A live snapshot of the club's builders, competitors, and rising problem-solvers.</p>
-        <div className="div hero-divider" />
+        <UserLeaderboardPodium top3={top3} podiumVisible={podiumVisible} podiumRef={podiumRef} />
+        {/* <p className="hero-description">A live snapshot of the club's builders, competitors, and rising problem-solvers.</p>
+        <div className="div hero-divider" /> */}
       </section>
 
       <div className="fu fu2 stats-section">
-        <div className="stats-heading">
+        {/* <div className="stats-heading">
           <span>CLUB SNAPSHOT</span>
           <span className="stats-heading-status"><span className="stats-heading-dot" /> LIVE DATA</span>
-        </div>
+        </div> */}
         <div ref={statsRef} className="stats-bar" style={{ opacity: statsVisible ? 1 : 0, transform: statsVisible ? "none" : "translateY(22px)", transition: "all 0.6s ease 0.1s" }}>
           <div className="stat-cell">
-            <div className="stat-v"><Counter value={sorted.length} visible={statsVisible} /></div>
-            <div className="stat-l">ACTIVE MEMBERS</div>
+            {/* <div className="stat-v"><Counter value={sorted.length} visible={statsVisible} /></div>
+            <div className="stat-l">ACTIVE MEMBERS</div> */}
           </div>
           <div className="stat-sep" />
           <div className="stat-cell stat-cell-highlight">
-            <div className="stat-v">{highestPts}</div>
-            <div className="stat-l">HIGHEST XP</div>
+            {/* <div className="stat-v">{highestPts}</div>
+            <div className="stat-l">HIGHEST XP</div> */}
           </div>
           <div className="stat-sep" />
           <div className="stat-cell">
-            <div className="stat-v">{totalPts}</div>
-            <div className="stat-l">TOTAL XP</div>
+            {/* <div className="stat-v">{totalPts}</div>
+            <div className="stat-l">TOTAL XP</div> */}
           </div>
         </div>
       </div>
@@ -121,7 +125,7 @@ export default function UserLeaderboardHero({
       <div className="fu fu4 search-wrap">
         <div className="search-box">
           <span className="search-icon">⬡</span>
-          <input className="search-input" type="text" placeholder="SCAN BY ROLL / NAME..." value={search} onChange={e => setSearch(e.target.value)} />
+          {/* <input className="search-input" type="text" placeholder="SCAN BY ROLL / NAME..." value={search} onChange={e => setSearch(e.target.value)} /> */}
         </div>
       </div>
     </>

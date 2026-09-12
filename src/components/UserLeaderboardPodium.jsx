@@ -83,8 +83,8 @@ function HoloPodiumCard({ student, position, visible }) {
 export default function UserLeaderboardPodium({ top3, podiumVisible, podiumRef }) {
   if (!top3.length) return null;
   return (
-    <div ref={podiumRef} className="fu fu3" style={{ marginBottom: 72 }}>
-      <p style={{ textAlign: "center", color: "rgba(0,255,160,0.28)", fontSize: 9, letterSpacing: "0.32em", marginBottom: 40, fontFamily: "'Share Tech Mono',monospace" }}>◈ &nbsp; ELITE OPERATIVES &nbsp; ◈</p>
+    <div ref={podiumRef} className="fu fu3" style={{ position: "relative", top: 38, marginBottom: 0 }}>
+      <p style={{ textAlign: "center", color: "rgba(0,255,160,0.28)", fontSize: 9, letterSpacing: "0.32em", marginBottom: 8, fontFamily: "'Share Tech Mono',monospace" }}>◈ &nbsp; ELITE OPERATIVES &nbsp; ◈</p>
       <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "center", gap: "clamp(12px,3vw,38px)" }}>
         <HoloPodiumCard student={top3[1]} position={2} visible={podiumVisible} />
         <HoloPodiumCard student={top3[0]} position={1} visible={podiumVisible} />

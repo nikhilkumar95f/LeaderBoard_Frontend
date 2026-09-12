@@ -156,7 +156,7 @@ export default function UserLeaderboard() {
         @media(max-width:767px){.cursor{display:none!important}}
         @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 
-        .lb-inner{position:relative;z-index:3;max-width:1160px;margin:0 auto;padding:clamp(16px,4vw,52px) clamp(12px,3vw,36px) 0}
+        .lb-inner{position:relative;z-index:3;max-width:1160px;margin:0 auto;padding:0 clamp(12px,3vw,36px)}
 
         .leader-nav{position:sticky;top:14px;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1160px;margin:0 auto;padding:10px clamp(14px,3vw,24px);background:rgba(3,12,23,0.78);border:1px solid rgba(0,255,200,0.16);backdrop-filter:blur(20px);box-shadow:0 12px 36px rgba(0,0,0,0.22)}
         .leader-brand{display:flex;align-items:center;gap:10px;color:#e8fff4;text-decoration:none;min-width:max-content}
@@ -170,17 +170,17 @@ export default function UserLeaderboard() {
         .leader-menu-button span{display:block;width:17px;height:1px;margin:3px;background:currentColor;transition:transform 0.2s}
         .leader-menu-button b{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-        .hero-shell{text-align:center;margin-bottom:clamp(34px,6vw,58px)}
+        .hero-shell{text-align:center;margin-bottom:0}
         .hero-kicker-wrap{display:flex;justify-content:center;margin-bottom:22px}
         .hero-eyebrow{color:rgba(0,255,160,0.38);font-size:clamp(8px,1.1vw,10px);letter-spacing:0.28em;margin-bottom:16px}
         .hero-title{font-family:'Orbitron',monospace;font-weight:900;font-size:clamp(30px,6.5vw,58px);line-height:1.05;margin-bottom:10px;letter-spacing:0.04em}
         .hero-subtitle{font-family:'VT323',monospace;font-size:clamp(18px,3.5vw,28px);color:#00aaff;text-shadow:0 0 18px #00aaff66;margin-bottom:14px;letter-spacing:0.1em}
-        .hero-description{max-width:520px;margin:0 auto 22px;color:rgba(224,255,232,0.52);font-family:'Share Tech Mono',monospace;font-size:clamp(11px,1.4vw,13px);line-height:1.7;letter-spacing:0.02em}
+        /* .hero-description{max-width:520px;margin:0 auto 22px;color:rgba(224,255,232,0.52);font-family:'Share Tech Mono',monospace;font-size:clamp(11px,1.4vw,13px);line-height:1.7;letter-spacing:0.02em}
         .hero-divider{max-width:520px}
         .stats-section{margin-bottom:clamp(28px,5vw,50px)}
         .stats-heading{display:flex;align-items:center;justify-content:space-between;max-width:760px;margin:0 auto 9px;padding:0 4px;color:rgba(0,255,160,0.46);font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em}
         .stats-heading-status{display:inline-flex;align-items:center;gap:6px;color:rgba(0,170,255,0.62)}
-        .stats-heading-dot{width:6px;height:6px;border-radius:50%;background:#00aaff;box-shadow:0 0 8px #00aaff}
+        .stats-heading-dot{width:6px;height:6px;border-radius:50%;background:#00aaff;box-shadow:0 0 8px #00aaff} */
         .leaderboard-tools{display:flex;justify-content:center;align-items:stretch;flex-wrap:wrap;gap:10px;margin-bottom:18px}
         .sort-control{display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(0,4,14,0.78);border:1px solid rgba(0,255,160,0.13);border-radius:4px}
         .sort-control>span{font-size:10px;letter-spacing:0.18em;color:rgba(0,255,160,0.5);text-transform:uppercase}
@@ -188,9 +188,10 @@ export default function UserLeaderboard() {
         .sort-select:focus{border-color:rgba(0,255,160,0.55);box-shadow:0 0 0 3px rgba(0,255,160,0.08)}
         .top-toggle{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 16px;border-radius:3px;border:1px solid rgba(0,255,160,0.2);background:rgba(0,255,160,0.08);color:#00ffcc;font-family:'Share Tech Mono',monospace;font-weight:700;letter-spacing:0.12em;cursor:pointer;transition:all 0.2s}
         .top-toggle:hover,.top-toggle.is-active{background:#00ffcc;color:#000308;box-shadow:0 0 20px rgba(0,255,204,0.22)}
-        .search-box{position:relative;width:100%;max-width:600px;margin:0 auto}
-        .search-wrap{margin-bottom:clamp(28px,4vw,42px)}
+        /* .search-box{position:relative;width:100%;max-width:600px;margin:0 auto}
+        .search-wrap{margin-bottom:clamp(28px,4vw,42px)} */
         .rankings-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:0 0 22px;padding:0 2px}
+        .rankings-heading .hero-kicker{margin:0 0 4px;line-height:1}
         .rankings-heading h2{font-family:'Orbitron',monospace;font-size:clamp(15px,2vw,21px);letter-spacing:0.1em;color:#e8fff4}
         .rankings-heading p{color:rgba(0,255,160,0.38);font-size:10px;letter-spacing:0.1em;text-align:right}
         .leaderboard-skeleton{display:flex;flex-direction:column;gap:8px;padding:16px 14px;background:rgba(0,4,14,0.72);border:1px solid rgba(0,255,160,0.1);border-radius:3px}
@@ -221,18 +222,18 @@ export default function UserLeaderboard() {
         .div{height:1px;background:linear-gradient(90deg,transparent,#00ffcc66,#00aaff44,transparent);margin:0 auto;animation:divGlow 3s ease-in-out infinite alternate}
         @keyframes divGlow{0%{opacity:0.5}100%{opacity:1;filter:blur(0.5px)}}
 
-        .stats-bar{display:flex;justify-content:center;gap:clamp(10px,3vw,38px);padding:14px clamp(12px,3vw,24px);border-radius:3px;background:rgba(3,13,23,0.86);border:1px solid rgba(0,255,200,0.14);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(0,0,0,0.18);overflow:hidden}
+        /* .stats-bar{display:flex;justify-content:center;gap:clamp(10px,3vw,38px);padding:14px clamp(12px,3vw,24px);border-radius:3px;background:rgba(3,13,23,0.86);border:1px solid rgba(0,255,200,0.14);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(0,0,0,0.18);overflow:hidden}
         .stat-cell{min-width:clamp(88px,11vw,130px);padding:2px 12px;text-align:center}
         .stat-cell-highlight{border-left:1px solid rgba(0,255,200,0.1);border-right:1px solid rgba(0,255,200,0.1)}
         .stat-v{font-family:'Orbitron',monospace;font-size:clamp(18px,2.6vw,27px);font-weight:900;color:#00ffcc;text-shadow:0 0 14px #00ffcc55;white-space:nowrap}
         .stat-l{font-size:7px;color:rgba(0,255,160,0.42);letter-spacing:0.16em;margin-top:4px;white-space:nowrap}
-        .stat-sep{display:none}
+        .stat-sep{display:none} */
 
-        .search-wrap{display:flex;justify-content:center;position:sticky;top:12px;z-index:40}
+        /* .search-wrap{display:flex;justify-content:center;position:sticky;top:12px;z-index:40}
         .search-input{width:100%;max-width:540px;background:rgba(0,4,14,0.88);border:1px solid rgba(0,255,160,0.16);border-radius:2px;padding:13px 20px 13px 46px;color:#e0ffe8;font-size:13px;outline:none;backdrop-filter:blur(20px);font-family:'Share Tech Mono',monospace;letter-spacing:0.05em;transition:all 0.3s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
         .search-input::placeholder{color:rgba(0,255,160,0.18)}
         .search-input:focus{border-color:rgba(0,255,160,0.48);box-shadow:0 0 0 2px rgba(0,255,160,0.07),0 0 32px rgba(0,255,160,0.1);background:rgba(0,8,22,0.92)}
-        .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:rgba(0,255,160,0.32);font-size:15px;pointer-events:none}
+        .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:rgba(0,255,160,0.32);font-size:15px;pointer-events:none} */
 
         .card-wrap{background:rgba(0,4,14,0.72);border:1px solid rgba(0,255,160,0.09);border-radius:2px;overflow:hidden;backdrop-filter:blur(18px);box-shadow:0 0 60px rgba(0,255,160,0.03),inset 0 1px 0 rgba(0,255,160,0.05);position:relative}
         .card-wrap::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 26px,rgba(0,255,160,0.012) 26px,rgba(0,255,160,0.012) 27px);pointer-events:none;z-index:0}
@@ -324,14 +325,14 @@ export default function UserLeaderboard() {
           .lb-inner{padding-left:16px;padding-right:16px}
           .hero-eyebrow{letter-spacing:0.16em;line-height:1.6}
           .hero-title{letter-spacing:0.02em}
-          .hero-description{padding:0 12px}
+          /* .hero-description{padding:0 12px}
           .stats-bar{gap:0;justify-content:space-around;padding:13px 6px}
           .stat-cell{min-width:0;flex:1;padding:4px 6px}
           .stat-cell-highlight{border-left:1px solid rgba(0,255,200,0.12);border-right:1px solid rgba(0,255,200,0.12)}
           .stats-heading{font-size:8px;letter-spacing:0.14em}
           .stat-v{font-size:21px}
           .stat-l{font-size:7px;letter-spacing:0.12em}
-          .stat-sep{margin:0 8px}
+          .stat-sep{margin:0 8px} */
           .leaderboard-tools{display:grid;grid-template-columns:1fr 1fr;width:100%}
           .sort-control{min-width:0;justify-content:space-between;grid-column:1 / -1}
           .sort-select{flex:1;min-width:0}
@@ -369,6 +370,8 @@ export default function UserLeaderboard() {
           setShowTopOnly={setShowTopOnly}
           statsRef={statsRef}
           statsVisible={statsVisible}
+          podiumVisible={podiumVisible}
+          podiumRef={podiumRef}
         />
 
         <div id="leaderboard" className="lb-inner">
@@ -383,8 +386,6 @@ export default function UserLeaderboard() {
                 </div>
                 <p>{filtered.length} visible · sorted by {sortBy === "xp" ? "XP score" : sortBy === "name" ? "name" : "rank"}</p>
               </div>
-              <UserLeaderboardPodium top3={top3} podiumVisible={podiumVisible} podiumRef={podiumRef} />
-
               <div className="desktop">
             <div className="card-wrap">
               <svg style={{ position: "absolute", width: 0, height: 0 }}>
