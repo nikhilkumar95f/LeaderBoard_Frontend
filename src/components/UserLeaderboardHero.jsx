@@ -36,7 +36,7 @@ export default function UserLeaderboardHero({
               <Glitch style={{ color: "#00ffcc", textShadow: "0 0 30px #00ffcc88, 0 0 80px #00ffcc22" }}>IGNITE CLUB</Glitch>
             </h1>
             <h2 style={{ fontFamily: "'VT323',monospace", fontSize: "clamp(22px,5vw,42px)", color: "#00aaff", textShadow: "0 0 20px #00aaff77", marginBottom: 10, letterSpacing: "0.1em" }}>
-              BUGBYTE 2026 🎉
+              CodeCraft 2026 🎉
             </h2>
             <p style={{ color: "rgba(0,255,160,0.22)", fontSize: 9, letterSpacing: "0.3em", marginBottom: 52, fontFamily: "'Share Tech Mono',monospace" }}>
               VISHVESHWARYA GROUP OF INSTITUTION
@@ -69,7 +69,7 @@ export default function UserLeaderboardHero({
           <Glitch style={{ color: "#00ffcc", textShadow: "0 0 22px #00ffcc77, 0 0 55px #00ffcc22" }}>IGNITE CLUB</Glitch>
         </h1>
         <h2 className="hero-subtitle">
-          ▸ BUGBYTE — NEURAL LEADERBOARD
+          ▸ CodeCraft — NEURAL LEADERBOARD
         </h2>
         <UserLeaderboardPodium top3={top3} podiumVisible={podiumVisible} podiumRef={podiumRef} />
         {/* <p className="hero-description">A live snapshot of the club's builders, competitors, and rising problem-solvers.</p>

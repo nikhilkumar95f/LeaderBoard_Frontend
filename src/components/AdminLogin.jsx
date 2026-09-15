@@ -92,7 +92,7 @@ export default function AdminLogin({ onLogin }) {
               IGNITE CLUB
             </h1>
             <p style={{ fontFamily: "'VT323',monospace", fontSize: 20, color: "#00aaff", letterSpacing: "0.1em", textShadow: "0 0 14px #00aaff66", marginTop: 4 }}>
-              BUGBYTE — ADMIN TERMINAL
+              CodeCraft — ADMIN TERMINAL
             </p>
             <div style={{ height: 1, background: "linear-gradient(90deg,transparent,#00ffcc55,#00aaff44,transparent)", margin: "20px 0" }} />
           </div>

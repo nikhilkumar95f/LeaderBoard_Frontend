@@ -43,7 +43,7 @@ export default function UserLeaderboard() {
   const handleProfileClose = () => setProfileTarget(null);
   const handleProfileOpen = (student, pos) => setProfileTarget({ student, pos, badges: badges[student.roll] || [] });
   const [statsRef, statsVisible] = useScrollReveal(0.1);
-  const fullText = "> ACCESSING IGNITE_CLUB.DB... [OK]\n> DECRYPTING BUGBYTE RANKINGS... [OK]\n> NEURAL LINK ESTABLISHED......... [GO]";
+  const fullText = "> ACCESSING IGNITE_CLUB.DB... [OK]\n> DECRYPTING CodeCraft RANKINGS... [OK]\n> NEURAL LINK ESTABLISHED......... [GO]";
 
   const fetchStudents = () => {
     setIsLoading(true);

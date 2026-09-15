@@ -12,7 +12,7 @@ export default function AdminHeader({ students, totalPts, sorted, onLogout }) {
             IGNITE CLUB
           </h1>
           <p style={{ fontFamily: "'VT323',monospace", fontSize: 20, color: "#00aaff", textShadow: "0 0 14px #00aaff66", letterSpacing: "0.1em", marginTop: 4 }}>
-            ▸ BUGBYTE — ADMIN DASHBOARD
+            ▸ CodeCraft — ADMIN DASHBOARD
           </p>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>

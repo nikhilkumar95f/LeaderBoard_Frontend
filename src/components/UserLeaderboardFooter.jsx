@@ -46,7 +46,7 @@ export default function UserLeaderboardFooter({ sorted, top3, totalPts, podiumRe
       <div className="footer-top">
         <div className="footer-brand">
           <h3>IGNITE_CLUB</h3>
-          <p>BUGBYTE 2026<br />NEURAL LEADERBOARD<br />VISHVESHWARYA GROUP OF INSTITUTIONS</p>
+          <p>CodeCraft 2026<br />NEURAL LEADERBOARD<br />VISHVESHWARYA GROUP OF INSTITUTIONS</p>
           <p className="footer-brand-note">A student-led space for builders, problem-solvers, and curious minds.</p>
           <div style={{ marginTop: 16, height: 1, background: "linear-gradient(90deg,rgba(0,255,160,0.3),transparent)" }} />
           <p style={{ marginTop: 12, fontSize: 10, color: "rgba(0,255,160,0.2)", letterSpacing: "0.08em" }}>TRACKING {sorted.length} OPERATIVES · {totalPts} TOTAL XP</p>
@@ -128,7 +128,7 @@ export default function UserLeaderboardFooter({ sorted, top3, totalPts, podiumRe
       </section>
 
       <div className="footer-bottom">
-        <p>© 2026 IGNITE CLUB — BUGBYTE · ALL NODES SECURED</p>
+        <p>© 2026 IGNITE CLUB — CodeCraft · ALL NODES SECURED</p>
         <div className="footer-socials">
           <a href="https://www.linkedin.com/in/aarav12e/" target="_blank" rel="noreferrer">⬡ LINKEDIN</a>
           <a href="https://github.com" target="_blank" rel="noreferrer">⬡ GITHUB</a>

@@ -15,7 +15,7 @@ export default function LeaderboardNav() {
     <nav className="leader-nav" aria-label="Primary navigation">
       <a className="leader-brand" href="#top" onClick={closeMenu} aria-label="Ignite Club home">
         <span className="leader-brand-mark">I</span>
-        <span><strong>IGNITE</strong><small>CLUB / BUGBYTE</small></span>
+        <span><strong>IGNITE</strong><small>CLUB / CodeCraft</small></span>
       </a>
 
       <button className={`leader-menu-button${menuOpen ? " is-open" : ""}`} type="button" onClick={() => setMenuOpen(open => !open)} aria-expanded={menuOpen} aria-controls="leader-nav-links">
